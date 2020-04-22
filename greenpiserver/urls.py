@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import monitor.views
+import chart.views
+
 urlpatterns = [
+    path("", monitor.views.index, name="index"),
+    path("chart/", chart.views.chart, name="chart"),
     path('admin/', admin.site.urls),
 ]
