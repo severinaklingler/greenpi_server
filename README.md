@@ -17,7 +17,7 @@ Download [Heroku](https://heroku.com) for your system.
 
 To run the app locally (first line only the first time)
 ```python manage.py collectstatic
-
+   python manage.py migrate
    heroku local web -f Procfile.windows
 ```
 Now you can visit [http://localhost:5000](http://localhost:5000)
