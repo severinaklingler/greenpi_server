@@ -5,11 +5,13 @@ from django.http import JsonResponse
 
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
+from api.models import Measurement
+
 # Create your views here.
 
 @api_view(['GET'])
 def chart(request):
-    sensor = request.GET.get('sensor','')
+    sensor_type = request.GET.get('sensor','')
     time_range = request.GET.get('time_range','')
 
     if time_range == 'today':
@@ -17,8 +19,10 @@ def chart(request):
     else:
         date_to_show = datetime.date.today() - datetime.timedelta(days=1)
 
-    labels = list()
-    data = [{'x' : 1 , 'y' : 3},{'x' : 2 , 'y' : 2},{'x' : 3 , 'y' : 10}]
+    labels = list(range(24))
+    data = []
+    for m in Measurement.objects.filter(when__date=date_to_show).filter(sensor=sensor_type).order_by("when"):
+        data.append({'x' : m.when.hour , 'y' : m.value})
 
     chart_config = {
         'type': 'line',
