@@ -22,7 +22,7 @@ def chart(request):
     labels = list(range(24))
     data = []
     for m in Measurement.objects.filter(when__date=date_to_show).filter(sensor=sensor_type).order_by("when"):
-        data.append({'x' : m.when.hour , 'y' : m.value})
+        data.append({'x' : m.when.hour + m.when.minute / 60 , 'y' : m.value})
 
     chart_config = {
         'type': 'line',
