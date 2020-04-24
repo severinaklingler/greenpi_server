@@ -13,6 +13,7 @@ from api.models import Measurement
 def chart(request):
     sensor_type = request.GET.get('sensor','')
     time_range = request.GET.get('time_range','')
+    color_string = request.GET.get('color','7,121,228')
 
     if time_range == 'today':
         date_to_show = datetime.date.today()
@@ -30,8 +31,8 @@ def chart(request):
             'labels': labels,
             'datasets': [{
                 'label': 'My First dataset',
-                'backgroundColor': 'rgba(7, 121, 228,0.5)',
-                'borderColor': 'rgb(7, 121, 228)',
+                'backgroundColor': 'rgba(' + color_string +',0.5)',
+                'borderColor': 'rgb(' + color_string + ')',
                 'data': data
             }]
         },
@@ -44,6 +45,10 @@ def chart(request):
                 'type': 'linear',
                 'gridLines' : {
                     'display' : False
+                },
+                'ticks': {
+                    'min': 1,
+                    'max': 24
                 }
                 }]
             }

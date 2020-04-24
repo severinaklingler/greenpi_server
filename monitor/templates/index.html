@@ -18,6 +18,51 @@
   </div>
 </div>
 
+<h1 class="cover-heading">Water tank level</h1>
+<p class="lead">...</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h5>Yesterday</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "yesterday", "sensor" : "water_tank_level", "color" : "168, 230, 207"}'></canvas>
+    </div>
+    <div class="col-sm">
+      <h5>Today</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "today", "sensor" : "water_tank_level", "color" : "168, 230, 207"}'></canvas>
+    </div>
+  </div>
+</div>
+
+<h1 class="cover-heading">Temperature</h1>
+<p class="lead">...</p>
+<div class="container"> 
+  <div class="row">
+    <div class="col-sm">
+      <h5>Yesterday</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "yesterday", "sensor" : "temperature", "color" : "255, 170, 165"}}'></canvas>
+    </div>
+    <div class="col-sm">
+      <h5>Today</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "today", "sensor" : "temperature", "color" : "255, 170, 165"}'></canvas>
+    </div>
+  </div>
+</div>
+
+<h1 class="cover-heading">Humidity</h1>
+<p class="lead">...</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h5>Yesterday</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "yesterday", "sensor" : "humidity", "color" : "168, 230, 207"}'></canvas>
+    </div>
+    <div class="col-sm">
+      <h5>Today</h5>
+      <canvas class="chart" data-url="{% url 'chart' %}" data-options='{"time_range": "today", "sensor" : "humidity", "color" : "168, 230, 207"}'></canvas>
+    </div>
+  </div>
+</div>
+
 <h2 class="cover-heading">Test Sensor</h2>
 <p class="lead">To test integrations</p>
 <div class="container">
