@@ -26,6 +26,7 @@ urlpatterns = [
     path("", monitor.views.index, name="index"),
     path("add_measurement/", api.views.add_measurement, name="add_measurement"),
     path("measurements/", api.views.measurements, name="measurements"),
+    path("clean/", api.views.clean, name="clean"),
     path("chart/", chart.views.chart, name="chart"),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
